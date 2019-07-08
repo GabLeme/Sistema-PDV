@@ -1,0 +1,104 @@
+<div class="container">
+  <div class="page-title">
+    <h2 class="h1-responsive font-weight-bold text-center my-5">Clientes</h2>
+  </div>
+  <form>
+    <div class="form-row">
+      <div class="col-md-6">
+        <div class="md-form form-group">
+          <input mdbInput name="nome" [(ngModel)]="addOrEditClient.nome" type="text" class="form-control"
+            placeholder="Exemplo: Josemar Silva">
+          <label for="inputEmail4MD">Nome</label>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="md-form form-group">
+          <input mdbInput type="email" name="email" [(ngModel)]="addOrEditClient.email" class="form-control"
+            placeholder="Exemplo: cliente@hotmail.com.br">
+          <label>Email</label>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="row">
+
+      <div class="col-md-4">
+        <div class="md-form form-group">
+          <input mdbInput type="text" name="endereco" class="form-control" [(ngModel)]="addOrEditClient.endereco"
+            placeholder="Exemplo: Rua das dores, 10">
+          <label>Endereço</label>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="md-form form-group">
+          <input mdbInput type="text" name="bairro" [(ngModel)]="addOrEditClient.bairro" class="form-control"
+            placeholder="Exemplo: Tucuruvi">
+          <label>Bairro</label>
+        </div>
+      </div>
+
+
+      <div class="col-md-4">
+        <div class="md-form form-group">
+          <input mdbInput type="text" name="cidade" class="form-control" [(ngModel)]="addOrEditClient.cidade"
+            placeholder="Exemplo: São Paulo">
+          <label>Cidade</label>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="col-md-6">
+        <div class="md-form form-group">
+          <input mdbInput type="text" name="telefoneCelular" [(ngModel)]="addOrEditClient.telefoneCelular"
+            class="form-control" placeholder="Exemplo: 11953157699">
+          <label>Telefone Celular</label>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="md-form form-group">
+          <input mdbInput type="text" name="telefoneResidencial" class="form-control"
+            [(ngModel)]="addOrEditClient.telefoneResidencial" placeholder="Exemplo: 2315-7882">
+          <label>Telefone Residencial</label>
+        </div>
+      </div>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary btn-md" (click)="saveClient()">Salvar</button>
+  </form>
+</div>
+
+<br>
+
+<table mdbTable>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Email</th>
+      <th>Telefone celular</th>
+      <th>Telefone Residencial</th>
+      <th>Cidade</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="clientsList">
+    <tr mdbTableCol *ngFor="let c of clientsList">
+      <td>{{c.nome}}</td>
+      <td>{{c.email}}</td>
+      <td>{{c.telefoneCelular}}</td>
+      <td>{{c.telefoneResidencial}}</td>
+      <td>{{c.cidade}}</td>
+      <td (click)="deleteClient(c)">Excluir <mdb-icon fas icon="trash"></mdb-icon>
+      </td>
+      <td (click)="editClient(c)">Editar <mdb-icon fas icon="edit"></mdb-icon>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,23 @@
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark unique-color" [containerInside]="false">
+
+    <mdb-navbar-brand><a class="navbar-brand" href="#">
+            <img class="img-fluid" style="width: 100px !important"
+                src="https://assets.website-files.com/56167e908d7696d210cb5ff4/5c48b8fa216db78fccf1e715_NEX_PDV.png">
+        </a></mdb-navbar-brand>
+
+    <links>
+
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link waves-light" routerLink="/clients" mdbWavesEffect>Clientes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link waves-light" routerLink="/products" mdbWavesEffect>Produtos</a>
+            </li>
+
+        </ul>
+    </links>
+
+</mdb-navbar>
+
+<router-outlet></router-outlet>

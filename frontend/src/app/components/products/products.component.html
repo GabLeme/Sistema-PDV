@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="page-title">
+    <h2 class="h1-responsive font-weight-bold text-center my-5">Produtos</h2>
+  </div>
+  <form>
+    <div class="form-row">
+      <div class="col-md-6">
+        <div class="md-form form-group">
+          <input mdbInput name="nome" type="text" class="form-control" [(ngModel)]="addOrEditProduct.nome"
+            placeholder="Exemplo: Rexonna">
+          <label for="inputEmail4MD">Nome do produto</label>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="md-form form-group">
+          <input mdbInput type="text" name="valor" class="form-control" [(ngModel)]="addOrEditProduct.valor"
+            placeholder="Exemplo: R$ 46.72">
+          <label for="inputPassword4MD">Valor Unitário</label>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="row">
+
+      <div class="col-md-6">
+        <div class="md-form form-group">
+          <input mdbInput type="number" name="quantidade" class="form-control" placeholder="Exemplo: 35"
+            [(ngModel)]="addOrEditProduct.quantidade">
+          <label for="inputAddressMD">Quantidade em estoque</label>
+        </div>
+      </div>
+
+
+      <div class="col-md-6">
+        <div class="md-form form-group">
+          <input mdbInput type="text" name="codigo" [(ngModel)]="addOrEditProduct.codigo" class="form-control"
+            placeholder="Exemplo: RX0001">
+          <label for="inputAddressMD">Código do produto</label>
+        </div>
+      </div>
+
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-md" (click)="saveProduct()">Salvar</button>
+  </form>
+</div>
+
+<br>
+
+<table mdbTable >
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Valor Unitário</th>
+      <th>Quantidade</th>
+      <th>Código</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="productsList">
+    <tr mdbTableCol *ngFor="let p of productsList">
+      <td>{{p.nome}}</td>
+      <td>{{p.valor | currency: 'R$'}}</td>
+      <td>{{p.quantidade}}</td>
+      <td>{{p.codigo}}</td>
+      <td (click)="deleteProduct(p)">Excluir <mdb-icon fas icon="trash"></mdb-icon></td>
+      <td (click)="editProduct(p)">Editar <mdb-icon fas icon="edit"></mdb-icon></td>
+    </tr>
+  </tbody>
+</table>

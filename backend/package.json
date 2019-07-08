@@ -1,0 +1,17 @@
+{
+  "name": "sistema-pdv-apis",
+  "version": "1.0.0",
+  "description": "Codigo backend do sistema de pdv.",
+  "main": "loader.js",
+  "scripts": {
+    "start": "node loader.js" 
+  },
+  "author": "Gabriel Leme",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.6.3",
+    "node-restful": "^0.2.6"
+  }
+}
